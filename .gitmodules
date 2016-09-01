@@ -1,0 +1,3 @@
+[submodule "vendor/electric-align"]
+	path = vendor/electric-align
+	url = https://github.com/zk-phi/electric-align.git
