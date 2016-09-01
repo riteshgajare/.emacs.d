@@ -1,3 +1,9 @@
 [submodule "vendor/electric-align"]
 	path = vendor/electric-align
 	url = https://github.com/zk-phi/electric-align.git
+[submodule "vendor/filladapt"]
+	path = vendor/filladapt
+	url = https://github.com/emacsmirror/filladapt.git
+[submodule "vendor/insert-time.el"]
+	path = vendor/insert-time.el
+	url = https://github.com/rmm5t/insert-time.el.git
