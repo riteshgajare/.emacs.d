@@ -10,3 +10,5 @@ There is install ruby script which will install emacs dotfiles. This will also s
 
     $ cd ~/.e_dotfiles
     $ ./install.rb
+
+I mostly do development on C/C++/Cuda & some web development. You can fork the repo and do changes accordingly. 
