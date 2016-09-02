@@ -29,6 +29,7 @@
 (personal 'theme)
 (personal 'zoom)
 (personal 'utf-8)
+(personal 'irony)
 
 ;; Showing the line numbers for all files
 (global-linum-mode t)
@@ -67,6 +68,7 @@
 (package 'haml-mode)
 (package 'htmlize)
 ;(package 'js2-mode)
+(package 'irony)
 (package 'lua-mode)
 (package 'magit)
 (package 'magit-gh-pulls)
