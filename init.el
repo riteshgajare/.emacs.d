@@ -29,7 +29,8 @@
 (personal 'theme)
 (personal 'zoom)
 (personal 'utf-8)
-(personal 'irony)
+;(personal 'irony) ;;unused
+
 
 ;; Showing the line numbers for all files
 (global-linum-mode t)
@@ -45,6 +46,7 @@
 (vendor 'rcodetools    'xmp)
 (vendor 'insert-time   'insert-time 'insert-date 'insert-date-time 'insert-personal-time-stamp)
 (vendor 'electric-align 'electric-align-mode)
+(add-hook 'prog-mode-hook 'electric-align-mode)
 
 ;; elpa managed
 ;; ------------------
@@ -68,7 +70,7 @@
 (package 'haml-mode)
 (package 'htmlize)
 ;(package 'js2-mode)
-(package 'irony)
+;(package 'irony)
 (package 'lua-mode)
 (package 'magit)
 (package 'magit-gh-pulls)
@@ -84,3 +86,7 @@
 (package 'textile-mode)
 (package 'yaml-mode)
 (package 'yasnippet)
+(package 'auto-complete)
+(package 'auto-complete-c-headers)
+(personal 'auto-complete-c++)
+(personal 'yasnippet)

@@ -8,10 +8,12 @@
 ;; (yas-load-directory "~/.emacs.d/vendor/yasnippets-rails/rails-snippets")
 ;; (yas-load-directory "~/.emacs.d/vendor/yasnippets-shoulda")
 
+
+
 (setq yas-prompt-functions '(yas-ido-prompt
                              yas-dropdown-prompt
                              yas-completing-prompt))
 
-;; (add-hook 'yas-minor-mode-hook
-;;           (lambda () (define-key yas-minor-mode-map
-;;                        (kbd "TAB") 'smart-tab))) ; was yas-expand
+ (add-hook 'yas-minor-mode-hook
+           (lambda () (define-key yas-minor-mode-map
+                        (kbd "TAB") 'smart-tab))) ; was yas-expand
