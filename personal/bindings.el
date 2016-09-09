@@ -5,12 +5,14 @@
 (global-set-key [(shift f2)]        'occur)
 (global-set-key [(control meta f2)] 'ag-dired-regexp)
 
+;; Code commenting
 ;; Keyboard macros
 (global-set-key [(shift f4)] 'kmacro-start-macro-or-insert-counter)
 
 ;; Query Replace
 (global-set-key [(f6)]         'query-replace)
 (global-set-key [(control f6)] 'query-replace-regexp)
+
 
 ;; Indenting and alignment
 (global-set-key [(f8)]         'indent-region)
@@ -31,6 +33,8 @@
 ;; Find matching parens
 (global-set-key (kbd "C-'") 'match-paren)
 
+(global-set-key (kbd "C-c C-c RET") 'comment-region)
+(global-set-key (kbd "C-c C-u") 'uncomment-region)
 ;; Easy inserts
 (global-set-key (kbd "C-.") 'insert-arrow)
 
