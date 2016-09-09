@@ -1,4 +1,6 @@
 # .emacs.d
+Requires Emacs >= 24.3
+
 Emacs dotfiles. Work mostly taken from rmmt5 with some modification for adding some cool C++ features like,
 auto-complete & yasnippet.
 @Plan: To add Irony mode in order to have amazing code completion feature to the editor.
