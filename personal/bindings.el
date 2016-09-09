@@ -48,3 +48,5 @@
 (global-set-key [(control return)] 'textmate-next-line)
 
 ;(global-unset-key (kbd "C-t"))
+
+(global-set-key (kbd "C-c C-c C-c") 'compile)
