@@ -9,23 +9,28 @@
 (personal 'bindings)
 (personal 'c)
 (personal 'diff)
+
 (personal 'dired)
 (personal 'disabled)
 (personal 'flymake)
 (personal 'fonts)
 (personal 'global)
 (personal 'grep)
+;;(personal 'hl-line)
 (personal 'javascript)
 (personal 'mac)
 (personal 'magit)
 (personal 'org)
+(personal 'paren-mode)
 (personal 'private)
+
 (personal 'recentf)
 (personal 'rectangle)
 (personal 'saveplace)
 ;(personal 'scratch) ;; Not used by me
 (personal 'server-mode)
 (personal 'shell-mode)
+(personal 'shell-pop)
 (personal 'tabs)
 (personal 'theme)
 (personal 'zoom)
@@ -38,7 +43,7 @@
 ;; submodule managed
 ;; ------------------
 (add-to-list 'load-path "~/.emacs.d/vendor/")
-
+(vendor 'llvm-mode)
 (vendor 'feature-mode)
 (vendor 'filladapt)
 (vendor 'jekyll)
@@ -53,8 +58,8 @@
 ;; ------------------
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")
-                         ("melpa" . "http://melpa.org/packages/")))
+       ("melpa" . "http://melpa.milkbox.net/packages/")
+       ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
 (when (not package-archive-contents) (package-refresh-contents))
 
@@ -84,11 +89,14 @@
 (package 'projectile)
 (package 'sass-mode)
 (package 'shell-pop)
+(package 'smartparens)
 (package 'toggle-quotes)
 (package 'textile-mode)
 (package 'yaml-mode)
 (package 'yasnippet)
 (package 'auto-complete)
 (package 'auto-complete-c-headers)
+
 (personal 'auto-complete-c++)
 (personal 'yasnippet)
+(personal 'smartparens)
