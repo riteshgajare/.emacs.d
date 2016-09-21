@@ -7,3 +7,6 @@
 [submodule "vendor/insert-time.el"]
 	path = vendor/insert-time.el
 	url = https://github.com/rmm5t/insert-time.el.git
+[submodule "vendor/simpleclip"]
+	path = vendor/simpleclip
+	url = https://github.com/rolandwalker/simpleclip.git

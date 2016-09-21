@@ -6,3 +6,8 @@
 (setq shell-pop-window-height  40)
 (setq shell-pop-window-position "bottom")
 (global-set-key [f7] 'shell-pop)
+
+(eval-after-load 'shell-pop
+  '(progn
+	   (global-unset-key (kbd "TAB"))
+     ))

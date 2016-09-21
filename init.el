@@ -18,12 +18,8 @@
 (personal 'grep)
 ;;(personal 'hl-line)
 (personal 'javascript)
-(personal 'mac)
-(personal 'magit)
 (personal 'org)
 (personal 'paren-mode)
-(personal 'private)
-
 (personal 'recentf)
 (personal 'rectangle)
 (personal 'saveplace)
@@ -32,27 +28,9 @@
 (personal 'shell-mode)
 (personal 'shell-pop)
 (personal 'tabs)
-(personal 'theme)
 (personal 'zoom)
 (personal 'utf-8)
 ;(personal 'irony) ;;unused
-
-
-;; Showing the line numbers for all files
-(global-linum-mode t)
-;; submodule managed
-;; ------------------
-(add-to-list 'load-path "~/.emacs.d/vendor/")
-(vendor 'llvm-mode)
-(vendor 'feature-mode)
-(vendor 'filladapt)
-(vendor 'jekyll)
-;; (vendor 'key-chord)     ;; unused
-(vendor 'mode-line-bell)
-(vendor 'rcodetools    'xmp)
-(vendor 'insert-time   'insert-time 'insert-date 'insert-date-time 'insert-personal-time-stamp)
-(vendor 'electric-align 'electric-align-mode)
-(add-hook 'prog-mode-hook 'electric-align-mode)
 
 ;; elpa managed
 ;; ------------------
@@ -71,7 +49,6 @@
 (package 'expand-region)
 (package 'nlinum)
 (package 'exec-path-from-shell)
-(package 'feature-mode)
 (package 'flx-ido)
 (package 'flx-isearch)
 (package 'haml-mode)
@@ -79,8 +56,6 @@
 ;(package 'js2-mode)
 ;(package 'irony)
 (package 'lua-mode)
-(package 'magit)
-(package 'magit-gh-pulls)
 (package 'markdown-mode)
 (package 'maxframe)
 (package 'motion-mode)
@@ -100,3 +75,45 @@
 (personal 'auto-complete-c++)
 (personal 'yasnippet)
 (personal 'smartparens)
+
+(if (>= emacs-major-version 24)
+    (progn
+      ;; Do something for Emacs 24 or later
+      (personal 'theme)
+      (personal 'magit)
+      (package 'magit)
+      (package 'magit-gh-pulls)
+      )
+  ;; Do something else for Emacs 23 or less
+  )
+
+(cond
+ ((eq system-type 'windows-nt)
+  ;; Do something on Windows NT
+  )
+ ((eq system-type 'darwind)
+  ;; Do something on MAC OS
+  (personal 'mac)
+  )
+ ((eq system-type 'gnu/linux)
+  ;; Do something on GNU/Linux
+  )
+ ;; ...
+ (t
+  ;; Do something in any other case
+  ))
+
+;; Showing the line numbers for all files
+(global-linum-mode t)
+;; submodule managed
+;; ------------------
+(add-to-list 'load-path "~/.emacs.d/vendor/")
+(vendor 'llvm-mode)
+;; To add copy-paste feature in Macs
+(vendor 'simpleclip 'simpleclip-mode)
+(vendor 'filladapt)
+;; (vendor 'key-chord)     ;; unused
+(vendor 'mode-line-bell)
+(vendor 'insert-time   'insert-time 'insert-date 'insert-date-time 'insert-personal-time-stamp)
+(vendor 'electric-align 'electric-align-mode)
+(add-hook 'prog-mode-hook 'electric-align-mode)

@@ -35,6 +35,7 @@
 
 (global-set-key (kbd "C-c C-c RET") 'comment-region)
 (global-set-key (kbd "C-c C-u") 'uncomment-region)
+
 ;; Easy inserts
 (global-set-key (kbd "C-.") 'insert-arrow)
 
@@ -51,26 +52,28 @@
 
 (global-set-key (kbd "<f5>") (lambda () (interactive) (call-interactively 'compile)))
 ;Mouse binding
-(defun go-click (button)
-   (print (button-get button 'point))
-   (let ((win (get-buffer-window (button-get button 'buffer)))
-         (cur-win (get-buffer-window (current-buffer))))
-     (select-window cur-win)
-     (if win
-         (progn
-           (select-window win)
-           (goto-char (button-get button 'point)))
-         (message "open a window with the location"))))
+;; (defun go-click (button)
+;;    (print (button-get button 'point))
+;;    (let ((win (get-buffer-window (button-get button 'buffer)))
+;;          (cur-win (get-buffer-window (current-buffer))))
+;;      (select-window cur-win)
+;;      (if win
+;;          (progn
+;;            (select-window win)
+;;            (goto-char (button-get button 'point)))
+;;          (message "open a window with the location"))))
 
 ;; Enable mouse support
-(unless window-system
-   (require 'mouse)
-    (xterm-mouse-mode t)
-    (global-set-key [mouse-4] (lambda ()
-                                (interactive)
-                                (scroll-down 1)))
-    (global-set-key [mouse-5] (lambda ()
-                                (interactive)
-                                (scroll-up 1)))
-     (defun track-mouse (e))
-     (setq mouse-sel-mode t))
+(setq x-select-enable-clipboard t)
+
+;; (unless window-system
+;;    (require 'mouse)
+;;     (xterm-mouse-mode t)
+;;     (global-set-key [mouse-4] (lambda ()
+;;                                 (interactive)
+;;                                 (scroll-down 1)))
+;;     (global-set-key [mouse-5] (lambda ()
+;;                                 (interactive)
+;;                                 (scroll-up 1)))
+;;      (defun track-mouse (e))
+;;      (setq mouse-sel-mode t))
