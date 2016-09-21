@@ -3,8 +3,7 @@
 
 (setq custom-file "~/.emacs.d/personal/custom.el")
 (load custom-file 'noerror)
-(load "~/.emacs.d/package.el")
-
+(if (< emacs-major-version 24) (prog (load "~/.emacs.d/package.el")))
 (load "~/.emacs.d/personal/defuns")
 
 (personal 'bindings)
@@ -113,5 +112,5 @@
 ;; (vendor 'key-chord)     ;; unused
 (vendor 'mode-line-bell)
 (vendor 'insert-time   'insert-time 'insert-date 'insert-date-time 'insert-personal-time-stamp)
-;;(vendor 'electric-align 'electric-align-mode)
+(vendor 'electric-align 'electric-align-mode)
 (add-hook 'prog-mode-hook 'electric-align-mode)
