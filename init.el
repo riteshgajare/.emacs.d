@@ -3,7 +3,7 @@
 
 (setq custom-file "~/.emacs.d/personal/custom.el")
 (load custom-file 'noerror)
-(if (< emacs-major-version 24) (prog (load "~/.emacs.d/package.el")))
+(if (< emacs-major-version 24) (progn (load "~/.emacs.d/package.el")))
 (load "~/.emacs.d/personal/defuns")
 
 (personal 'bindings)
