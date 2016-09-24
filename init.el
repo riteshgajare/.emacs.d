@@ -113,4 +113,5 @@
 (vendor 'mode-line-bell)
 (vendor 'insert-time   'insert-time 'insert-date 'insert-date-time 'insert-personal-time-stamp)
 (vendor 'electric-align 'electric-align-mode)
+(vendor 'flycheck 'global-flycheck-mode)
 (add-hook 'prog-mode-hook 'electric-align-mode)
