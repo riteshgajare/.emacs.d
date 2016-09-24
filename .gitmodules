@@ -10,3 +10,6 @@
 [submodule "vendor/simpleclip"]
 	path = vendor/simpleclip
 	url = https://github.com/rolandwalker/simpleclip.git
+[submodule "vendor/flycheck"]
+	path = vendor/flycheck
+	url = https://github.com/emacsmirror/flycheck
