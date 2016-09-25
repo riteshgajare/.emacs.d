@@ -45,8 +45,6 @@
 (package 'csv-mode)
 (package 'dropdown-list)
 (package 'expand-region)
-(package 'helm-ag)
-(package 'helm-gtags)
 (package 'nlinum)
 (package 'exec-path-from-shell)
 (package 'flx-ido)
@@ -62,11 +60,8 @@
 (package 'auto-complete)
 (package 'auto-complete-c-headers)
 
-
 (personal 'auto-complete-c++)
 (personal 'yasnippet)
-(personal 'helm)
-(personal 'helm-gtags)
 
 (if (>= emacs-major-version 24)
     (progn
@@ -77,11 +72,18 @@
       (package 'haml-mode)
       (package 'htmlize)
       (package 'markdown-mode)
-      (if (>= emacs-minor-version 4) (progn
-  (personal 'magit)
-  (package 'magit))
+      (if (>= emacs-minor-version 4)
+          (progn
+            (personal 'magit)
+            (package 'magit)
+            (package 'magit-gh-pulls)
+            (package 'helm-ag)
+            (package 'helm-gtags)
+            ;; Personal things
+            (personal 'helm)
+            (personal 'helm-gtags)
+            )
       )
-      (package 'magit-gh-pulls)
       (package 'sass-mode)
       (package 'smartparens)
       (personal 'smartparens)
@@ -90,10 +92,8 @@
       (package 'projectile)
       (package 'shell-pop)
       (package 'flycheck)
-      (package 'flycheck-irony)
-      (global-flycheck-mode)
-      )
-
+      ;;(package 'flycheck-irony)
+      (global-flycheck-mode))
   ;; Do something else for Emacs 23 or less
   (package 'dired-details+)
   )
@@ -103,10 +103,25 @@
   ;; Do something on Windows NT
   )
  ((eq system-type 'darwind)
-  ;; Do something on MAC OS
+  ;; Do something on my MAC OSX
   ;; To add copy-paste feature in Macs
   (vendor 'simpleclip 'simpleclip-mode)
   (personal 'mac)
+  (package 'flycheck-clangcheck)
+  (require 'flycheck-clangcheck)
+
+  (defun my-select-clangcheck-for-checker ()
+    "Select clang-check for flycheck's checker."
+    (flycheck-set-checker-executable 'c/c++-clangcheck
+                                     "/Users/Ritzy/llvm_src/llvm-3.9.0.src/build/bin/clang-check")
+    (flycheck-select-checker 'c/c++-clangcheck))
+
+  (add-hook 'c-mode-hook #'my-select-clangcheck-for-checker)
+  (add-hook 'c++-mode-hook #'my-select-clangcheck-for-checker)
+
+  ;; enable static analysis
+  (setq flycheck-clangcheck-analyze t)
+
   )
  ((eq system-type 'gnu/linux)
   ;; Do something on GNU/Linux
@@ -130,17 +145,3 @@
 (require 'guide-key)
 (setq guide-key/guide-key-sequence t)
 (guide-key-mode 1)
-
-(require 'flycheck-clangcheck)
-
-(defun my-select-clangcheck-for-checker ()
-   "Select clang-check for flycheck's checker."
-   (flycheck-set-checker-executable 'c/c++-clangcheck
-            "/Users/Ritzy/llvm_src/llvm-3.9.0.src/build/bin/clang-check")
-   (flycheck-select-checker 'c/c++-clangcheck))
-
-(add-hook 'c-mode-hook #'my-select-clangcheck-for-checker)
-(add-hook 'c++-mode-hook #'my-select-clangcheck-for-checker)
-
-;; enable static analysis
-(setq flycheck-clangcheck-analyze t)
