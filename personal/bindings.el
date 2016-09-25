@@ -1,7 +1,7 @@
 ;; Following are the binding that are customized. Please read throught the comments to understand what it really do.
 
-(global-set-key [(f2)]              'ag-project-regexp)
-(global-set-key [(meta f2)]         'ag-regexp)
+(global-set-key [(f2)]              'helm-do-grep-ag)
+(global-set-key [(meta f2)]         'helm-do-ag)
 (global-set-key [(shift f2)]        'occur)
 (global-set-key [(control meta f2)] 'ag-dired-regexp)
 
@@ -68,12 +68,5 @@
 
 ;; (unless window-system
 ;;    (require 'mouse)
-;;     (xterm-mouse-mode t)
-;;     (global-set-key [mouse-4] (lambda ()
-;;                                 (interactive)
-;;                                 (scroll-down 1)))
-;;     (global-set-key [mouse-5] (lambda ()
-;;                                 (interactive)
-;;                                 (scroll-up 1)))
-;;      (defun track-mouse (e))
-;;      (setq mouse-sel-mode t))
+;;     (xterm-mouse-mode t))
+;;  ;;    (setq mouse-sel-mode t))

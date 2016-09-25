@@ -13,3 +13,6 @@
 [submodule "vendor/flycheck"]
 	path = vendor/flycheck
 	url = https://github.com/emacsmirror/flycheck
+[submodule "vendor/mouse-plus"]
+	path = vendor/mouse-plus
+	url = https://github.com/emacsmirror/mouse-plus

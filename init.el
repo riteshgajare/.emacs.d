@@ -9,7 +9,6 @@
 (personal 'bindings)
 (personal 'c)
 (personal 'diff)
-
 (personal 'dired)
 (personal 'disabled)
 (personal 'flymake)
@@ -18,7 +17,7 @@
 (personal 'grep)
 ;;(personal 'hl-line)
 (personal 'javascript)
-(personal 'org)
+;;(personal 'org)
 (personal 'paren-mode)
 (personal 'recentf)
 (personal 'rectangle)
@@ -41,18 +40,19 @@
 (package-initialize)
 (when (not package-archive-contents) (package-refresh-contents))
 
-(package 'ag)
+;;(package 'ag) ;; Used helm instead
 (package 'browse-kill-ring+)
 (package 'csv-mode)
-(package 'dired-details+)
 (package 'dropdown-list)
 (package 'expand-region)
+(package 'helm-ag)
+(package 'helm-gtags)
 (package 'nlinum)
 (package 'exec-path-from-shell)
 (package 'flx-ido)
+(package 'guide-key)
 ;(package 'js2-mode)
 ;(package 'irony)
-
 (package 'maxframe)
 (package 'motion-mode)
 (package 'multiple-cursors)
@@ -61,9 +61,12 @@
 (package 'yasnippet)
 (package 'auto-complete)
 (package 'auto-complete-c-headers)
+
+
 (personal 'auto-complete-c++)
 (personal 'yasnippet)
-
+(personal 'helm)
+(personal 'helm-gtags)
 
 (if (>= emacs-major-version 24)
     (progn
@@ -74,8 +77,10 @@
       (package 'haml-mode)
       (package 'htmlize)
       (package 'markdown-mode)
-      (personal 'magit)
-      (package 'magit)
+      (if (>= emacs-minor-version 4) (progn
+  (personal 'magit)
+  (package 'magit))
+      )
       (package 'magit-gh-pulls)
       (package 'sass-mode)
       (package 'smartparens)
@@ -84,8 +89,13 @@
       (package 'powerline)
       (package 'projectile)
       (package 'shell-pop)
+      (package 'flycheck)
+      (package 'flycheck-irony)
+      (global-flycheck-mode)
       )
+
   ;; Do something else for Emacs 23 or less
+  (package 'dired-details+)
   )
 
 (cond
@@ -94,6 +104,8 @@
   )
  ((eq system-type 'darwind)
   ;; Do something on MAC OS
+  ;; To add copy-paste feature in Macs
+  (vendor 'simpleclip 'simpleclip-mode)
   (personal 'mac)
   )
  ((eq system-type 'gnu/linux)
@@ -106,12 +118,29 @@
 ;;------------------
 (add-to-list 'load-path "~/.emacs.d/vendor/")
 (vendor 'llvm-mode)
-;; To add copy-paste feature in Macs
-(vendor 'simpleclip 'simpleclip-mode)
 (vendor 'filladapt)
 ;; (vendor 'key-chord)     ;; unused
 (vendor 'mode-line-bell)
+(vendor 'mouse+)
 (vendor 'insert-time   'insert-time 'insert-date 'insert-date-time 'insert-personal-time-stamp)
 (vendor 'electric-align 'electric-align-mode)
-(vendor 'flycheck 'global-flycheck-mode)
 (add-hook 'prog-mode-hook 'electric-align-mode)
+;; init.el ends here
+
+(require 'guide-key)
+(setq guide-key/guide-key-sequence t)
+(guide-key-mode 1)
+
+(require 'flycheck-clangcheck)
+
+(defun my-select-clangcheck-for-checker ()
+   "Select clang-check for flycheck's checker."
+   (flycheck-set-checker-executable 'c/c++-clangcheck
+            "/Users/Ritzy/llvm_src/llvm-3.9.0.src/build/bin/clang-check")
+   (flycheck-select-checker 'c/c++-clangcheck))
+
+(add-hook 'c-mode-hook #'my-select-clangcheck-for-checker)
+(add-hook 'c++-mode-hook #'my-select-clangcheck-for-checker)
+
+;; enable static analysis
+(setq flycheck-clangcheck-analyze t)
