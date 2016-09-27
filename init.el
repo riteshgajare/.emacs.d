@@ -43,6 +43,7 @@
 ;;(package 'ag) ;; Used helm instead
 (package 'browse-kill-ring+)
 (package 'csv-mode)
+(package 'clang-format)
 (package 'dropdown-list)
 (package 'expand-region)
 (package 'nlinum)
@@ -63,39 +64,40 @@
 (personal 'auto-complete-c++)
 (personal 'yasnippet)
 
-(if (>= emacs-major-version 24)
-    (progn
-      ;; Do something for Emacs 24 or later
-      (personal 'theme)
-      (package 'lua-mode)
-      (package 'flx-isearch)
-      (package 'haml-mode)
-      (package 'htmlize)
-      (package 'markdown-mode)
-      (if (>= emacs-minor-version 4)
-          (progn
-            (personal 'magit)
-            (package 'magit)
-            (package 'magit-gh-pulls)
-            (package 'helm-ag)
-            (package 'helm-gtags)
-            ;; Personal things
-            (personal 'helm)
-            (personal 'helm-gtags)
-            )
-      )
-      (package 'sass-mode)
-      (package 'smartparens)
-      (personal 'smartparens)
-      (package 'yaml-mode)
-      (package 'powerline)
-      (package 'projectile)
-      (package 'shell-pop)
-      (package 'flycheck)
-      ;;(package 'flycheck-irony)
-      (global-flycheck-mode))
+(if (version<= emacs-version "24.1.0")
   ;; Do something else for Emacs 23 or less
-  (package 'dired-details+)
+    (progn
+      (package 'dired-details+))
+  ;; Do something for Emacs 24 or later
+  (if (version<= emacs-version "24.4.0")
+      (progn
+        ;; Files for < 24.4.0
+        )
+    (personal 'magit)
+    (package 'magit)
+    (package 'magit-gh-pulls)
+    (package 'helm-ag)
+    (package 'helm-gtags)
+    ;; Personal things
+    (personal 'helm)
+    (personal 'helm-gtags)
+    (personal 'theme)
+    (package 'lua-mode)
+    (package 'flx-isearch)
+    (package 'haml-mode)
+    (package 'htmlize)
+    (package 'markdown-mode)
+    (package 'sass-mode)
+    (package 'smartparens)
+    (personal 'smartparens)
+    (package 'yaml-mode)
+    (package 'powerline)
+    (package 'projectile)
+    (package 'shell-pop)
+    (package 'flycheck)
+    ;;(package 'flycheck-irony)
+    (global-flycheck-mode)
+    )
   )
 
 (cond
