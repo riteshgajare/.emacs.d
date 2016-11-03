@@ -49,6 +49,7 @@
 (package 'nlinum)
 (package 'exec-path-from-shell)
 (package 'flx-ido)
+(package 'fic-mode)
 (package 'guide-key)
 ;(package 'js2-mode)
 ;(package 'irony)
