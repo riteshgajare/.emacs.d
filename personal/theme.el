@@ -1,6 +1,4 @@
 ;;; Theme customization
-(package 'monokai-theme)
-(load-theme 'monokai)
 
 (set-cursor-color "orange")
 (set-face-attribute 'region nil :background "cornflower blue")
