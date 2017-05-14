@@ -52,6 +52,7 @@
 (package 'guide-key)
 (package 'ein)
 (package 'elpy)
+(package 'monokai-theme)
 ;(package 'js2-mode)
 ;(package 'irony)
 (package 'maxframe)
@@ -67,6 +68,8 @@
 (personal 'auto-complete-c++)
 (personal 'yasnippet)
 (personal 'myelpy)
+
+(load-theme 'monokai)
 
 (if (version<= emacs-version "24.1.0")
   ;; Do something else for Emacs 23 or less
