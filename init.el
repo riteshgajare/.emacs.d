@@ -5,7 +5,7 @@
 (load custom-file 'noerror)
 (if (< emacs-major-version 24) (progn (load "~/.emacs.d/package.el")))
 (load "~/.emacs.d/personal/defuns")
-
+(setq custom-safe-themes t)
 (personal 'bindings)
 (personal 'c)
 (personal 'diff)
@@ -120,7 +120,7 @@
   (defun my-select-clangcheck-for-checker ()
     "Select clang-check for flycheck's checker."
     (flycheck-set-checker-executable 'c/c++-clangcheck
-                                     "/Users/Ritzy/llvm_src/llvm-3.9.0.src/build/bin/clang-check")
+                                     "/home/rgajare/llvm/install/bin/clang-check")
     (flycheck-select-checker 'c/c++-clangcheck))
 
   (add-hook 'c-mode-hook #'my-select-clangcheck-for-checker)

@@ -1,10 +1,8 @@
 ;;; Fonts
-
 (when (eq system-type 'darwin)
-  ;; default Latin font (e.g. Consolas)
-  ;; default font size (point * 10)
+;; default Latin font (e.g. Consolas)
+;; default font size (point * 10)
   (set-face-attribute 'default nil :family "Monaco" :height 120 :weight 'normal))
-
 ;; To change a font size globally:
 ;; (set-face-attribute 'default nil :height 360)
 ;; (set-face-attribute 'default nil :height 240)
