@@ -39,7 +39,6 @@
        ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
 (when (not package-archive-contents) (package-refresh-contents))
-
 ;;(package 'ag) ;; Used helm instead
 (package 'browse-kill-ring+)
 (package 'csv-mode)
@@ -51,13 +50,15 @@
 (package 'flx-ido)
 (package 'fic-mode)
 (package 'guide-key)
+(package 'ein)
+(package 'elpy)
 (package 'monokai-theme)
-
 ;(package 'js2-mode)
 ;(package 'irony)
 (package 'maxframe)
 (package 'motion-mode)
 (package 'multiple-cursors)
+(package 'py-autopep8)
 (package 'textile-mode)
 (package 'toggle-quotes)
 (package 'yasnippet)
@@ -66,6 +67,7 @@
 
 (personal 'auto-complete-c++)
 (personal 'yasnippet)
+(personal 'myelpy)
 
 (load-theme 'monokai)
 
@@ -86,6 +88,7 @@
     ;; Personal things
     (personal 'helm)
     (personal 'helm-gtags)
+    (package 'jedi)
     (personal 'theme)
     (package 'lua-mode)
     (package 'flx-isearch)

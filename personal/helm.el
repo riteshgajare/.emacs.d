@@ -6,6 +6,26 @@
 (require 'helm-config)
 (require 'helm-grep)
 
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x C-d") 'helm-find-files)
+(global-set-key (kbd "C-c r") 'helm-recentf)
+(global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
+(global-set-key (kbd "C-c h o") 'helm-occur)
+(global-set-key (kbd "C-c h o") 'helm-occur)
+
+(global-set-key (kbd "C-c h w") 'helm-wikipedia-suggest)
+(global-set-key (kbd "C-c h g") 'helm-google-suggest)
+
+(global-set-key (kbd "C-c h x") 'helm-register)
+;; (global-set-key (kbd "C-x r j") 'jump-to-register)
+
+(define-key 'help-command (kbd "C-f") 'helm-apropos)
+(define-key 'help-command (kbd "r") 'helm-info-emacs)
+(define-key 'help-command (kbd "C-l") 'helm-locate-library)
+
+
 (defun helm-hide-minibuffer-maybe ()
   (when (with-helm-buffer helm-echo-input-in-header-line)
     (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
@@ -67,24 +87,6 @@
 
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
-(global-set-key (kbd "C-x C-d") 'helm-find-files)
-(global-set-key (kbd "C-c r") 'helm-recentf)
-(global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
-(global-set-key (kbd "C-c h o") 'helm-occur)
-(global-set-key (kbd "C-c h o") 'helm-occur)
-
-(global-set-key (kbd "C-c h w") 'helm-wikipedia-suggest)
-(global-set-key (kbd "C-c h g") 'helm-google-suggest)
-
-(global-set-key (kbd "C-c h x") 'helm-register)
-;; (global-set-key (kbd "C-x r j") 'jump-to-register)
-
-(define-key 'help-command (kbd "C-f") 'helm-apropos)
-(define-key 'help-command (kbd "r") 'helm-info-emacs)
-(define-key 'help-command (kbd "C-l") 'helm-locate-library)
 
 ;; use helm to list eshell history
 (add-hook 'eshell-mode-hook

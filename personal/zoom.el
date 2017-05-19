@@ -1,4 +1,4 @@
-;;; Custom folding support
+[21~];;; Custom folding support
 
 (defun zoom-way-out() (interactive)
   (set-selective-display 0))
